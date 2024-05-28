@@ -1,6 +1,5 @@
 Flask==2.0.3
-llama_index==0.10.39
-llama-index-agent-openai 0.2.5
+llama_index==0.10.39                   
 llama-index-cli 0.1.12
 llama-index-core 0.10.39.post1
 llama-index-embeddings-huggingface 0.2.0 
