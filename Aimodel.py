@@ -1,47 +1,30 @@
-# import requests
-# import pdfToTxtConverter
-# import listofChannels
-
-
-# # API_URL = "https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct"
-# # headers = {"Authorization": "Bearer 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"}
-#
-#
-# def userClassification(filepath):
-#     def combine_resume_text(text):
-#         """Remove extra line breaks and leading/trailing whitespaces"""
-#         paragraphs = [line.strip() for line in text.splitlines() if line.strip()]
-#         return " ".join(paragraphs)
-#
-#     # print(combine_resume_text(pdfToTxtConverter.readPdf(filepath)))
-#
-#     # def query(payload):
-#     #     response = requests.post(API_URL, headers=headers, json=payload)
-#     #     return response.json()
-#     #
-#     # output = query({
-#     #     "inputs": f" classify this resume {combine_resume_text(pdfToTxtConverter.readPdf(filepath))} based on one or more of these classes {listofChannels}",
-#     # })
-#     #
-#     # return output
-#
-#     # print(userClassification("./test.pdf"))
-
-
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/unsloth/llama-3-8b-Instruct-bnb-4bit"
-headers = {"Authorization": "Bearer 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"}
+API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+headers = {"Authorization": "Bearer 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"}
 
 
-def query(payload):
-    response = requests.post(API_URL, headers=headers, json=payload)
-    return response.json()
+def summerize(usertext):
+    def query(payload):
+        response = requests.post(API_URL, headers=headers, json=payload)
+        return response.json()
+
+    output = query({
+        "inputs": f" summerize the text in quotation using points, separate each point with a comma. '{usertext}'."
+    })
+
+    return output[0]["summary_text"]
 
 
-output = query({
-    "inputs": "Can you please let us know more details about your ",
-})
+def format_to_points(text):
+    points = [f"* {sentence.strip()}" for sentence in text.split(".")]
+    return "\n".join(points)
 
-print(output)
+#
+# print(summerize("dallo is a good boy bu he is sick with love"))
+                    
+                      
+                      
+                      
+  
 
