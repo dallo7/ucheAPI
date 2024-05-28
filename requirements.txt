@@ -1,7 +1,6 @@
 Flask==2.0.3
-llama_index==0.10.39                   
-llama-index-readers-web 0.1.17
-nltk==3.8.1
+llama_index==0.10.39                                                                                                   
+nltk==3.8.1                    
 beautifulsoup4==4.12.3
 Requests==2.32.2
 gunicorn
