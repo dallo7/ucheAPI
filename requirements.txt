@@ -2,7 +2,8 @@ Werkzeug==2.3.7
 flask==2.2.2                                                            
 llama_index.readers.web
 llama_index==0.10.39                                                                                                   
-nltk==3.8.1                    
+nltk==3.8.1  
+wikipedia==1.4.0
 beautifulsoup4==4.12.3
 Requests==2.32.2
 gunicorn
